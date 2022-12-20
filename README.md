@@ -7,7 +7,7 @@
 
 ### How to cite. 
 If you use *objective_thresholds* in a scientific publication, please include the reference below:
-> Raczyński K., Dyer J., 2022, Development of an Objective Low Flow Identification Method Using Breakpoint Analysis, Journal to be determined, XX(XX), doi: XXXX.XX/XX.XX/xx.
+> Raczyński K., Dyer J., 2022, Development of an Objective Low Flow Identification Method Using Breakpoint Analysis, Water, 14(14), 2212, https://doi.org/10.3390/w14142212
 
 
 ### Website:
