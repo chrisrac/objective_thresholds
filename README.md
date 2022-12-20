@@ -2,7 +2,7 @@
 
 
 ### Description
-*objective_thresholds* is a Python package for objective threshold level calculation based on a flow duration curve (FDC). At the time of publication this package contains tools for threshold calculation for low flow analysis, contained in the accompanying *lowflow* module. The functions included in the module allow for the computation of a single threshold value (function *threshold*) on a given lower range of the FDC, or multiple (function *multiple*) thresholds if additional division is needed (i.e., “shallow” and “deep” low flows). Further implementations and modules will be added in the future to allow for additional threshold calculations and analysis at full range of FDC. 
+*objective_thresholds* is a Python package for objective threshold level calculation based on a flow duration curve (FDC). This package contains tools for threshold calculation for low flow and flood analysis, contained in the accompanying *lowflow* and *flood* modules. The functions included in the modules allow for the computation of a single threshold value (function *threshold*) on a given lower range of the FDC, or multiple (function *multiple*) thresholds if additional division is needed (i.e., “shallow” and “deep” low flows). Further implementations and modules will be added in the future to allow for additional threshold calculations and analysis at full range of FDC. 
 
 
 ### How to cite. 
@@ -31,7 +31,10 @@ The *objective_thresholds* package requires the following:
 ### Usage
 The *objective_thresholds* package currently includes the module *lowflow* with two functions available. To use the package, once installed it should be imported to Python:
 import objective_thresholds.lowflow as olf
-The function *threshold* allows for the computation of low flow thresholds using breakpoints through the application of the Fisher-Jenks algorithm, which is applied to the lower range of the FDC (calculated from provided dataset: *input_data*).  By default, the lowest 35% of the FDC is used for low flow threshold calculations, and one threshold value is returned. The function accepts as input any array-like data, including: lists, pandas Series, numpy array, or slices of pandas DataFrame. Optionally, the *limit* of the lower FDC can be set by the user if a value other than the default 35<sup>th</sup> percentile is needed. If the input data are highly discretized (contains numerous repetitive values), the *method* argument controls the result:
+or:
+import objective_thresholds.flood as ofd
+for flood studies.
+The function *threshold* allows for the computation of low flow (flood) thresholds using breakpoints through the application of the Fisher-Jenks algorithm, which is applied to the lower (higher) range of the FDC (calculated from provided dataset: *input_data*).  By default, the lowest (highest) 35% of the FDC is used for low flow (flood) threshold calculations, and one threshold value is returned. The function accepts as input any array-like data, including: lists, pandas Series, numpy array, or slices of pandas DataFrame. Optionally, the *limit* of the lower FDC can be set by the user if a value other than the default 35<sup>th</sup> percentile is needed. If the input data are highly discretized (contains numerous repetitive values), the *method* argument controls the result:
 •	*leave* – breaks the computation, Exception is returned;
 •	*max* – the maximum value in the lower FDC range is returned;
 •	*median* – the median value in the lower FDC range is returned.
@@ -70,7 +73,7 @@ threshold_max = olf.threshold(data['flow2'], limit=0.10, method = 'max')
 # results in: 0.11
 ```
 
-The function *multiple* allows for the computation of multiple low flow thresholds using breakpoints through the application of the Fisher-Jenks algorithm, which is applied to the lower range of the FDC (provided as *input_data*).  By default, the lowest 35% of the FDC is used for low flow threshold calculations, and multiple threshold values are returned. This function is to be used when at least two thresholds are needed, such as when dividing the lower FDC range into “shallow” and “deep” low flow events. The function accepts as input any array-like data, including: lists, pandas Series, numpy array, or slices of pandas DataFrame. Argument breaks controls the number of thresholds to be returned.  Optionally, the *limit* of the lower FDC can be set by the user if a value other than the default 35<sup>th</sup> percentile is needed.. If the input data are highly discretized (contains numerous repetitive values), the *method* argument controls the result:
+The function *multiple* allows for the computation of multiple low flow (flood) thresholds using breakpoints through the application of the Fisher-Jenks algorithm, which is applied to the lower (higher) range of the FDC (provided as *input_data*).  By default, the lowest (highest) 35% of the FDC is used for low flow (flood) threshold calculations, and multiple threshold values are returned. This function is to be used when at least two thresholds are needed, such as when dividing the lower FDC range into “shallow” and “deep” low flow events. The function accepts as input any array-like data, including: lists, pandas Series, numpy array, or slices of pandas DataFrame. Argument breaks controls the number of thresholds to be returned.  Optionally, the *limit* of the lower FDC can be set by the user if a value other than the default 35<sup>th</sup> percentile is needed.. If the input data are highly discretized (contains numerous repetitive values), the *method* argument controls the result:
 •	*leave* – breaks the computation, Exception is returned;
 •	*max* – the maximum value in the lower FDC range is returned;
 •	*median* – the median value in the lower FDC range is returned.
