@@ -16,8 +16,9 @@ Official repository website address:
 
 
 ### Installation
-With pip:
+Required Jenkspy v.0.2.4 or older, with pip:
 pip install objective_thresholds
+
 
 
 ### Dependencies
@@ -25,7 +26,7 @@ The *objective_thresholds* package requires the following:
 - Python 3.4+
 - Pandas
 - NumPy
-- Jenkspy
+- Jenkspy v.0.2.4 (version 0.3+ is not supported)
 
 
 ### Usage
