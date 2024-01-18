@@ -16,8 +16,14 @@ Official repository website address:
 
 
 ### Installation
-Required Jenkspy v.0.2.4 or older, with pip:
-pip install objective_thresholds
+Required Jenkspy library. Depending on the version of Jenkspy available, use the appropriate release:
+- if Jenkspy v.0.2.4 or older is used, install it with pip: pip install objective_thresholds or download release v.0.1.
+- if Jenkspy 0.3 or newer is used, download release v.0.2.
+The main difference is in Jenkspy 0.3 and newer, where the argument "nb_class" was renamed to "n_classes". This naming affects the way this package works (by returning a TypeError if the wrong version is used).
+The difference between Objective Thresholds releases 0.1 and 0.2 is in the argument naming only. These are meant to be used with varying Jenkspy versions. 
+
+ 
+
 
 
 
