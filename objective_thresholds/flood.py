@@ -87,7 +87,7 @@ def threshold(input_data, limit=0.35, method='leave'):
         if method == 'median':
             threshold = np.median(flows)
     else:
-        fisher = jenkspy.jenks_breaks(flows, nb_class=2)
+        fisher = jenkspy.jenks_breaks(flows, n_classes=2)
         threshold = fisher[1]
         
     return threshold
@@ -178,7 +178,7 @@ def multiple(input_data, breaks=2, limit=0.35, method='leave'):
         if method == 'median':
             threshold = np.median(flows)
     else:
-        fisher = jenkspy.jenks_breaks(flows, nb_class=breaks+1)
+        fisher = jenkspy.jenks_breaks(flows, n_classes=breaks+1)
         threshold = fisher[1:breaks+1]
             
             
